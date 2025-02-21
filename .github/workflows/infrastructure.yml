@@ -27,14 +27,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Install Terraform
-      run: |
-        sudo apt-get update && sudo apt-get install -y wget unzip
-        wget https://releases.hashicorp.com/terraform/1.10.5/terraform_1.10.5_linux_amd64.zip
-        unzip terraform_1.10.5_linux_amd64.zip
-        sudo mv terraform /usr/local/bin/
-        terraform -version
-
     - name: 'Terraform Format'
       uses: hashicorp/terraform-github-actions@master
       with:
@@ -62,7 +54,6 @@ jobs:
         tf_actions_version: 0.14.8
         tf_actions_subcommand: 'plan'
         tf_actions_working_dir: "./iac"
-        terraform_arguments: '-out=out.tfplan'
 
         
     - name: Upload the plan

@@ -12,3 +12,12 @@ module "RG" {
   rgname   = var.rgname
   location = var.location
 }
+
+module "azure_storage_account" {
+  source = "./modules/storage_account"
+  name                             = var.storage_account_name
+  resource_group_name              = var.rgname
+  location                         = var.location
+  account_tier                     = "Standard"
+  account_replication_type         = "LRS"
+}

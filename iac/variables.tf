@@ -11,7 +11,7 @@ variable "location" {
 }
 
 variable "storage_account_name" {
-  description = "storage account name"
+  description = "The name of the Storage Account"
   default     = "terrafor-gihub-demo-storage"
   type        = string
 }

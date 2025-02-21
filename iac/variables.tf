@@ -1,6 +1,6 @@
 variable "rgname" {
   description = "Resource group name"
-  default     = "github-action1"
+  default     = "github-action"
   type        = string
 }
 

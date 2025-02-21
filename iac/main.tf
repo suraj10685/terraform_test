@@ -18,6 +18,4 @@ module "azure_storage_account" {
   storage_account_name     = var.storage_account_name
   rgname                   = var.rgname
   location                 = var.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
 }

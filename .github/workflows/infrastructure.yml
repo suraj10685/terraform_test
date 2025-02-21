@@ -48,14 +48,19 @@ jobs:
         tf_actions_subcommand: 'validate'
         tf_actions_working_dir: "./iac"
         
-    - name: 'Terraform Plan'
-      uses: hashicorp/terraform-github-actions@master
-      with:
-        tf_actions_version: 0.14.8
-        tf_actions_subcommand: 'plan'
-        tf_actions_working_dir: "./iac"
-        terraform_arguments: '-out=out.tfplan'
+#    - name: 'Terraform Plan'
+ #     uses: hashicorp/terraform-github-actions@master
+  #    with:
+  #      tf_actions_version: 0.14.8
+  #      tf_actions_subcommand: 'plan'
+  #      tf_actions_working_dir: "./iac"
+  #      terraform_arguments: '-out=out.tfplan'
 
+    - name: 'Terraform Plan'
+      run: |
+        terraform -chdir=./iac plan -out=tfplan
+      env:
+        TF_IN_AUTOMATION: "true"
         
     - name: Upload the plan
       uses: actions/upload-artifact@v4.6.0

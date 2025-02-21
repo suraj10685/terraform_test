@@ -12,6 +12,6 @@ variable "location" {
 
 variable "storage_account_name" {
   description = "The name of the Storage Account"
-  default     = "githubactionstorage"
+  default     = "githubactionteststorage"
   type        = string
 }

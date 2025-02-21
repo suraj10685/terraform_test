@@ -9,3 +9,9 @@ variable "location" {
   default     = "East US"
   type        = string
 }
+
+variable "storage_account_name" {
+  description = "storage account name"
+  default     = "terrafor-gihub-demo-storage"
+  type        = string
+}

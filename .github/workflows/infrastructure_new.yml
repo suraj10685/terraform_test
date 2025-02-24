@@ -58,6 +58,12 @@ jobs:
           tenant-id: ${{ secrets.AZURE_AD_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: latest  # or specify a version like "1.6.0"
+          
+
       - name: Terraform Init
         id: init
         run: |

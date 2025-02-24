@@ -66,7 +66,7 @@ jobs:
         run: terraform plan --out=out.tfplan --var-file="${{ env.ENV_PATH }}/${{ needs.setup.outputs.deploy_env }}.tfvars"
 
       - name: Upload the plan
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.6.0
         with:
           name: tfplan
           path: ${{ vars.TERRAFORM_DIR }}/out.tfplan

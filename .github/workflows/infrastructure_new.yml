@@ -85,7 +85,7 @@ jobs:
 
   apply:
     name: Terraform apply
-    needs: [setup]
+    needs: [plan, setup]
     runs-on: ubuntu-latest
     environment: ${{ needs.setup.outputs.deploy_env }}
     env:

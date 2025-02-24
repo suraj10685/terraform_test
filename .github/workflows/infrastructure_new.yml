@@ -1,4 +1,4 @@
-name: Infrastructure deployment new
+name: Terraform_New
 
 on:
   push:

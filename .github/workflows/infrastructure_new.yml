@@ -1,4 +1,4 @@
-name: Infrastructure deployment New
+name: Infrastructure deployment
 
 on:
   push:

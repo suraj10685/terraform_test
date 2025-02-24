@@ -1,0 +1,17 @@
+name: Infrastructure deployment
+
+on:
+  push:
+    branches:
+      - "dev"
+      - "ppd"
+      - "prd"
+    paths:
+      - .github/workflows/infrastructure.yml
+      - iac/**
+      - "!**/README.md"
+
+permissions:
+  id-token: write
+  contents: read
+  issues: write

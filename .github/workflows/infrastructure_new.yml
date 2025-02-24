@@ -105,6 +105,15 @@ jobs:
           tenant-id: ${{ secrets.AZURE_AD_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: latest  # Or specify a version, e.g., "1.6.0"
+
+      - name: Verify Terraform Installation
+        run: terraform version  # Check if Terraform is installed correctly
+          
+
       - name: Terraform Init
         id: init
         run: |

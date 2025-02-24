@@ -1,0 +1,72 @@
+name: "Action to get environment"
+description: "Get the environment to deploy to based on the branch name."
+outputs:
+  deploy-env:
+    description: "The environment to deploy to."
+    value: ${{ steps.setup.outputs.deploy-env }}
+#  deploy-new-service:
+#    description: "The new service to deploy."
+#    value: ${{ steps.setup.outputs.deploy-new-service }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Get Environment
+      id: setup
+      shell: bash
+      run: |
+        if ${{ startsWith(github.ref_name, 'dev') }}; 
+        then
+          echo "Branch is ${{ github.ref_name }}"
+          DEPLOY_ENV="dev"
+
+        elif [[ ${{ github.ref_name }} == 'prd' ]]; 
+        then
+          echo "Branch is ${{ github.ref_name }}"
+          DEPLOY_ENV="prd"
+
+        elif ${{ startsWith(github.ref_name, 'release') }}; 
+        then
+          echo "Branch is ${{ github.ref_name }}"
+          DEPLOY_ENV="pre"
+
+        elif ${{ startsWith(github.ref_name, '~/release\/(\d+)\/(.*)/') }}; 
+        then
+          echo "Branch is ${{ github.ref_name }}"
+          DEPLOY_ENV="pre"
+          DEPLOY_NEW_SERVICE= "~/\d{2}/"
+
+        elif ${{ startsWith(github.ref_name, 'feature') }}; 
+        then
+          echo "Branch is ${{ github.ref_name }}"
+          DEPLOY_ENV="dev"            
+
+        elif ${{ startsWith(github.ref_name, 'quality') }}; 
+        then
+          echo "Branch is ${{ github.ref_name }}"
+          DEPLOY_ENV="qa"
+
+        elif ${{ startsWith(github.ref_name, 'ppd') }}; 
+        then
+          echo "Branch is ${{ github.ref_name }}"
+          DEPLOY_ENV="ppd"
+
+        elif ${{ startsWith(github.ref_name, 'test') }}; 
+        then
+          echo "Branch is ${{ github.ref_name }}"
+          DEPLOY_ENV="test"   
+
+        else
+          echo "Environment not defined for the branch ${{ github.ref_name }}"
+          DEPLOY_ENV=""
+        fi
+        echo "deploy-env=$DEPLOY_ENV" >>"$GITHUB_OUTPUT"
+        echo "deploy-new-service=$DEPLOY_NEW_SERVICE" >>"$GITHUB_OUTPUT"
+
+    - name: Fail job if branch is not mapped
+      shell: bash
+      run: |
+        if [[ -z "${{ steps.setup.outputs.deploy-env }}" ]]; then
+            echo "The branch is not mapped in the environments!"
+            exit 1
+        fi

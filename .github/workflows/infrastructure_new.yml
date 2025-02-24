@@ -7,7 +7,7 @@ on:
       - "ppd"
       - "prd"
     paths:
-      - .github/workflows/infrastructure.yml
+      - .github/workflows/infrastructure_new.yml
       - iac/**
       - "!**/README.md"
 

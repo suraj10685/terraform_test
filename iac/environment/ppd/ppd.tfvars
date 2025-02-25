@@ -1,3 +1,5 @@
+resource_group_name  = "terraform_ppd"
 storage_account_name = "ghactionteststorageppd"
 location             = "East US"
-rgname               = "github-action-ppd"
+search_serivce_name  = "searchservice-ppd5050"
+search_serivce_sku   = "standard"

@@ -1,6 +1,5 @@
-variable "rgname" {
+variable "resource_group_name" {
   description = "Resource group name"
-  default     = "github-action"
   type        = string
 }
 
@@ -12,6 +11,16 @@ variable "location" {
 
 variable "storage_account_name" {
   description = "The name of the Storage Account"
-  default     = "githubactionteststorage1"
   type        = string
 }
+
+variable "search_serivce_sku" {
+  description = "The SKU of Search Service"
+  type        = string
+}
+
+variable "search_serivce_name" {
+  description = "The name of Search Service"
+  type        = string
+}
+

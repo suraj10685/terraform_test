@@ -9,7 +9,7 @@ module "azure_search_service" {
   source = "./modules/search_service"
 
   name                = var.search_serivce_name
-  resource_group_name = var.rgname
+  resource_group_name = var.resource_group_name
   location            = var.location
   sku                 = var.search_serivce_sku
   semantic_search_sku = "free"

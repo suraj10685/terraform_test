@@ -3,9 +3,10 @@ resource "azurerm_app_service_plan" "default" {
   location            = var.location
   resource_group_name = var.resource_group_name
   kind                = "Linux"  # Use "Windows" if needed
+  reserved            = true  # Required for Linux-based App Service Plans
 
   sku {
-    tier = "Standard"  # Adjust as needed (e.g., Free, Basic, Premium)
+    tier = "Free"  # Adjust as needed (e.g., Free, Basic, Premium)
     size = var.sku_name
   }
 

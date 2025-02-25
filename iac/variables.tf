@@ -18,3 +18,8 @@ variable "search_serivce_sku" {
   description = "The SKU of Search Service"
   type        = string
 }
+
+variable "search_serivce_name" {
+  description = "The name of Search Service"
+  type        = string
+}

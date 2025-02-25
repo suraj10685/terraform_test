@@ -15,3 +15,13 @@ module "azure_search_service" {
   semantic_search_sku = "free"
   identity_type       = "SystemAssigned"
 }
+
+module "azure_service_plan" {
+  source = "./modules/service_plan"
+
+  name                         = var.web_app_service_plan_name
+  location                     = var.location
+  resource_group_name          = var.resource_group_name
+  os_type                      = "Linux"
+  sku_name                     = var.web_app_service_plan_sku_name
+}

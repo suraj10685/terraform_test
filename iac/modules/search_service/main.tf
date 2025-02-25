@@ -10,6 +10,6 @@ resource "azurerm_search_service" "default" {
   }
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }

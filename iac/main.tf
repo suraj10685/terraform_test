@@ -16,7 +16,7 @@ module "azure_search_service" {
   identity_type       = "SystemAssigned"
 }
 
-module "azure_service_plan" {
+module "azure_app_service_plan" {
   source = "./modules/service_plan"
 
   name                         = var.web_app_service_plan_name

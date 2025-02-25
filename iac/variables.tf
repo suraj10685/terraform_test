@@ -24,3 +24,12 @@ variable "search_serivce_name" {
   type        = string
 }
 
+variable "web_app_service_plan_name" {
+  description = "The name of the ASP"
+  type        = string
+}
+
+variable "web_app_service_plan_sku_name" {
+  description = "The name of the ASP SKU"
+  type        = string
+}

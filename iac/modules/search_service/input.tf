@@ -3,7 +3,7 @@ variable "name" {
   description = "The Name which should be used for this Search Service."
 }
 
-variable "rgname" {
+variable "resource_group_name" {
   type        = string
   description = "The name of the Resource Group where the Search Service should exist."
 }

@@ -1,5 +1,5 @@
 resource_group_name                = "terraform_ppd"
-storage_account_name               = "ghactionteststorageppd"
+storage_account_name               = "ghactionteststorageppd1"
 location                           = "East US"
 search_serivce_name                = "searchservice-ppd5050"
 search_serivce_sku                 = "standard"

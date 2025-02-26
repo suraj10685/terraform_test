@@ -24,7 +24,8 @@ env:
   
 jobs:
   setup:
-    runs-on: ubuntu-latest
+    runs-on:
+      labels: self-hosted-suraj
     outputs:
       deploy_env: ${{ steps.setup.outputs.deploy-env }}
     name: "Setup environment"
@@ -39,7 +40,8 @@ jobs:
   plan:
     needs: setup
     name: Terraform plan
-    runs-on: ubuntu-latest
+    runs-on:
+      labels: self-hosted-suraj
     environment: ${{ needs.setup.outputs.deploy_env }}
     env:
       ENV_PATH: "environment/${{ needs.setup.outputs.deploy_env }}"

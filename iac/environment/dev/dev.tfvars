@@ -1,5 +1,5 @@
 resource_group_name                = "terraform_dev"
-storage_account_name               = "ghactionteststoragedev"
+storage_account_name               = "ghactionteststoragedev1"
 location                           = "East US"
 search_serivce_name                = "searchservice-dev5050"
 search_serivce_sku                 = "standard"
